@@ -46,3 +46,14 @@ btnRoll.addEventListener('click', function () {
     }
 
 });
+
+btnHold.addEventListener('click', function () {
+    // 1. add current score to score of active player's score
+    scores[activePlayer] += currentScore;
+    document.getElementById(`current--${activePlayer}`).textContent = scores[activePlayer];
+    // 2. check if player's score >= 100
+    // finish the game
+
+    // 3. switch to the next player
+
+});
