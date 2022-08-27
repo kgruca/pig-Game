@@ -71,3 +71,23 @@ btnHold.addEventListener('click', function () {
         }
     }  
 });
+
+btnNew.addEventListener('click', function () {
+    for (let i = 0; i < scores.length; i++) {
+        activePlayer = i;
+        if (document.querySelector(`.player--${activePlayer}`).classList.contains('player--winner')) {
+            document.querySelector(`.player--${activePlayer}`).classList.remove('player--winner');
+        }
+        scores[activePlayer] = 0;
+        currentScore = 0;
+        document.getElementById(`score--${activePlayer}`).textContent = 0; 
+        if (i === 0 && !document.querySelector(`.player--${activePlayer}`).classList.contains('player--active')){
+            document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+        } else if (i === 1 && document.querySelector(`.player--${i}`).classList.contains('player--active')) {
+            document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+            switchPlayer();
+        }
+    }
+    diceEl.classList.add('hidden');
+
+});
